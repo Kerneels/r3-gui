@@ -141,7 +141,7 @@ load-clip-text: does [
 		true
 	]
 	either none? ret: read p [
-		wait [p 0.5]
+		wait/only [p 0.5]
 	][
 		ret: to string! ret
 	]

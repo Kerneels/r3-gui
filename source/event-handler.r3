@@ -145,7 +145,7 @@ gui-events: context [
 									loop 11 [
 										drag/gob/offset: drag/gob/offset + delta
 										show drag/gob
-										wait 0.0125
+										wait/only 0.0125
 									]
 									drag/gob/offset: drag/base-offset
 									insert guie/drag/origin drag/gob
@@ -278,7 +278,7 @@ gui-events: context [
 			do-event: func [event] [
 				do-actor event/window/data 'on-resize event/offset
 				clear guie/shows
-				wait 0.001 ;give some time to event pump (a must in Windows to avoid infinite resizing loops in some special cases)
+				wait/only 0.001 ;give some time to event pump (a must in Windows to avoid infinite resizing loops in some special cases)
 				draw-face event/window/data
 			]
 		]
