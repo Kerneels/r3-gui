@@ -21,6 +21,7 @@ view: funct [
 	/minimized "Open window in minimized state"
 	/on-error
 		error-handler [block!] "specify global error handler"
+	/return-face "return a face object instead of a gob!"
 ][
 	; Is the system screen (OS) initialized?
 	unless screen: system/view/screen-gob [return none]
@@ -164,7 +165,11 @@ view: funct [
 	]
 
 	; Return window gob (used by requestors, etc.):
-	win-gob
+	either return-face [
+		win-face
+	][
+		win-gob
+	]
 ]
 
 close-window: func [
